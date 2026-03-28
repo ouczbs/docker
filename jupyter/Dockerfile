@@ -1,4 +1,4 @@
-FROM almalinux:8 as jupyter
+FROM centos:8 as jupyter
 USER root
 ENV ROOT_DIR /root/docker
 WORKDIR /data/jupyter

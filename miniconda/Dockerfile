@@ -1,4 +1,4 @@
-FROM almalinux:7
+FROM centos:7
 USER root
 ENV ROOT_DIR /root/docker
 WORKDIR ${ROOT_DIR}
