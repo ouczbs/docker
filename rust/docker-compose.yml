@@ -1,0 +1,13 @@
+# rust:
+#   build: ./rust
+#   image: ouczbs:jupyter-rust
+#   container_name: rust
+#   restart: always
+#   ports:
+#     - "8899:8899"
+#   networks:
+#     - nginx
+#   volumes:
+#     - /root/docker:/opt/notebooks
+
+
