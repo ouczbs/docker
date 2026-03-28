@@ -1,3 +1,5 @@
 [submodule "anki/anki-sync-server"]
 	path = anki/anki-sync-server
 	url = git@175.24.226.114:ouczbs/anki-sync-server.git
+	active = true
+	branch = develop
