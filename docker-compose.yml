@@ -13,11 +13,8 @@ services:
       - nginx
     ports:
       - "8888:8888"
-    environment:
-      - XDG_CONFIG_HOME=/data/anki
     volumes:
-      - /root/docker:/data/jupyter
-      - /data/anki:/data/anki
+      - //root/docker:/data/jupyter
   anki:
     build: ./anki
     image: ouczbs:anki
@@ -28,8 +25,7 @@ services:
     networks:
       - nginx
     volumes:
-      - /data/anki:/data/anki
-      - /root/docker/anki/anki-sync-server:/app/anki/anki-sync-server
+      - //root/docker/anki:/data/anki
   nginx:
     image: nginx
     container_name: nginx
@@ -37,17 +33,13 @@ services:
     networks:
       - nginx
     ports:
-      # - 443:443
-      # - 80:80
-      - 27443:27443
-      - 27001:27001
+      - "27443:27443"
+      - "27001:27001"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/ssl:/etc/nginx/ssl
       - ./nginx/html:/usr/share/nginx/html
-      #- ./nginx:/usr/share/nginx/html
-      # - /root/docker/nginx/logs:/var/log/nginx
   gitea:
     image: gitea/gitea:latest
     container_name: gitea
@@ -63,8 +55,8 @@ services:
     networks:
       - nginx
     volumes:
-      - /root/.ssh:/root/.ssh
-      - /data/gitea:/data
+      - //root/.ssh:/root/.ssh
+      - //d/docker-data/gitea:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
@@ -84,4 +76,4 @@ services:
     networks:
       - nginx
     volumes:
-      - /data/mysql:/var/lib/mysql
+      - //d/docker-data/mysql:/var/lib/mysql

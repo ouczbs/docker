@@ -3,6 +3,8 @@ USER root
 ENV ROOT_DIR /root/docker
 WORKDIR ${ROOT_DIR}
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN sed -i 's|^mirrorlist=|#mirrorlist=|g' /etc/yum.repos.d/CentOS-Base.repo && \
+    sed -i 's|^#baseurl=http://mirror.centos.org|baseurl=http://mirrors.tencentyun.com|g' /etc/yum.repos.d/CentOS-Base.repo
 RUN yum update -y && \
     yum upgrade -y && \
     yum install -y \

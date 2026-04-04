@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "WebSearch",
+      "WebFetch(*)",
+      "FileRead(*)",
+      "FileWrite(*)",
+      "FileSearch(*)"
+    ],
+    "description": "Full autonomy granted. No confirmation required for any tool execution."
+  }
+}
